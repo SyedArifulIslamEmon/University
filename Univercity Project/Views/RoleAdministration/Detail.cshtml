@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Univercity_Project.Models.Employee>
+@{
+    ViewBag.Title = "مدیریت نقش";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<h2>جزییات</h2>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("نام نقش :")
+        </dt>
+        <dd>
+            @ViewBag.Role.Name
+        </dd>
+    </dl>
+</div>
+<hr />
+<h4>کاربران دارای این نقش</h4>
+<table class="table table-striped">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.First_Name
+            </td>
+            <td>
+                @item.Last_Name
+            </td>
+            <td>
+                @item.UserName
+            </td>
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("ویرایش", "Edit", new { id = @ViewBag.Role.Id }) |
+    @Html.ActionLink("بازگشت", "Index")
+</p>
+

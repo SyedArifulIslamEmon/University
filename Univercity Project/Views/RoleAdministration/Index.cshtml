@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
+@{
+    ViewBag.Title = "مدیریت نقش";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<h2>مدیریت نقش</h2>
+<p>
+    @Html.ActionLink("ساخت نقش جدید", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.Label("نام نقش")
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("ویرایش", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("جذئیات", "Detail", new { id = item.Id }) |
+                @Html.ActionLink("حذف", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>

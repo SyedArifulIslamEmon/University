@@ -1,0 +1,65 @@
+﻿@model Univercity_Project.Models.Employee
+
+@{
+    ViewBag.Title = "جستجو";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>جستجو با نام</h2>
+
+@using (@Html.BeginForm("Search_By_Name", "Search", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+}
+<div class="form-horizontal">
+    <hr />
+    <div class="form-group">
+        @Html.Label("نام", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBox("searchtxbox1", null,new { @class = "form-control", @style = "width:300px" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("نام خانوادگی", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBox("searchtxbox2", null, new { @class = "form-control", @style = "width:300px" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="button" id="searchbt" name="searchbt" value="جستجو" class="btn btn-default" />
+        </div>
+    </div>
+    <hr />
+    <h3>نتایج</h3>
+    <div id="grid">
+    </div>    
+</div>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript" src="~/Scripts/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/handlebars.js"></script>
+    <script type="text/javascript" src="~/Scripts/simplePagingGrid-0.6.0.0.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#grid').simplePagingGrid({
+                columnNames: ["نام", "نام خانوادگی", "شماره پرسنلی","ویرایش"],
+                columnKeys: ["First_Name", "Last_Name", "Employment_Number",null],
+                cellTemplates: [null, null, null, '<a href="/UserAdministration/Edit/{{Id}}">ویرایش</a>'],
+                dataFunction:   function (pageNumber, pageSize, sortColumn, sortOrder, callback)
+                {
+                    $.post('@Url.Action("Search_By_Name", "Search")', { first_name: $('#searchtxbox1').val(), last_name: $('#searchtxbox2').val() }).done(function (response) {
+                        callback(response);
+                    })
+                    .fail(function () {alert("یافت نشد!") });
+                },
+            });
+            $('#searchbt').on("click", function () {
+                $("#grid").simplePagingGrid("refresh");
+            });
+        });
+</script>
+}

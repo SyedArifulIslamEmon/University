@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "جستجو";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>جستجو</h2>
+   
+    <div style="padding-right:400px;padding-top:100px">
+      | @Html.ActionLink("جستجو به وسیله شماره پرسنلی", "Search_By_Employment_Number","Search") |
+        @Html.ActionLink("جستجو به وسیله نام و نام خانوادگی", "Search_By_Name", "Search") |
+        @*@Html.ActionLink("Search By Role", "Search_By_Name","Search") |*@ 
+    </div>
