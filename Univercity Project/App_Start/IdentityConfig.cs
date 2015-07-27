@@ -11,7 +11,7 @@ using Univercity_Project.Models.Models;
 
 namespace Univercity_Project.App_Start
 {
-    class MyDbInitializer : DropCreateDatabaseAlways<MyDbContext>
+    class MyDbInitializer : DropCreateDatabaseIfModelChanges<MyDbContext>
     {
         protected override void Seed(MyDbContext context)
         {
@@ -47,18 +47,7 @@ namespace Univercity_Project.App_Start
             myUser.Insuarance_Info = new Insuarance { Code_Of_Factory_Request_Insuarance = "10", Insuarance_Code = "10225", Name_Of_Factory_Request_Insuarance = "فن آوا", Type_Of_Insuarance = "بیمه خدمات درمانی" };
             myUser.Job_Status = new Job_Status { Job_Group="غیر دولتی", Job_Title="توسعه دهنده", Location="تهران", Unit="زیرساخت" };
             myUser.Phone_Number = new Phone_Number { Home=76321011, Mobile= 09122225698, Work= 76523698 };
-
-            //Create Base Enteries
-
-            using (var db = new MyDbContext())
-            {
-                db.Employments.Add(new Employment_Status { ID = 1, Employment_Type = "رسمی", Status = "شاغل" });
-                db.Employments.Add(new Employment_Status { ID = 2, Employment_Type = "پیمانی", Status = "شاغل" });
-                db.Marriages.Add(new Marriage_Status { ID = 1, Status = "مجرد" });
-                db.Marriages.Add(new Marriage_Status { ID = 2, Status = "متأهل" });
-                db.SaveChanges();
-            }
-
+           
             //Create Role "Admin" & Add myUser To Admin Role
 
             if(!RoleManager.RoleExists("Admin"))
