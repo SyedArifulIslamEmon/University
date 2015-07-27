@@ -44,20 +44,19 @@
     <script type="text/javascript" src="~/Scripts/handlebars.js"></script>
     <script type="text/javascript" src="~/Scripts/simplePagingGrid-0.6.0.0.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#grid').simplePagingGrid({
-                columnNames: ["نام", "نام خانوادگی", "شماره پرسنلی","ویرایش"],
-                columnKeys: ["First_Name", "Last_Name", "Employment_Number",null],
-                cellTemplates: [null, null, null, '<a href="/UserAdministration/Edit/{{Id}}">ویرایش</a>'],
-                dataFunction:   function (pageNumber, pageSize, sortColumn, sortOrder, callback)
-                {
-                    $.post('@Url.Action("Search_By_Name", "Search")', { first_name: $('#searchtxbox1').val(), last_name: $('#searchtxbox2').val() }).done(function (response) {
-                        callback(response);
-                    })
-                    .fail(function () {alert("یافت نشد!") });
-                },
-            });
+        $(document).ready(function () {          
             $('#searchbt').on("click", function () {
+                $('#grid').simplePagingGrid({
+                    columnNames: ["نام", "نام خانوادگی", "شماره پرسنلی", "ویرایش"],
+                    columnKeys: ["First_Name", "Last_Name", "Employment_Number", null],
+                    cellTemplates: [null, null, null, '<a href="/UserAdministration/Edit/{{Id}}">ویرایش</a>'],
+                    dataFunction: function (pageNumber, pageSize, sortColumn, sortOrder, callback) {
+                        $.post('@Url.Action("Search_By_Name", "Search")', { first_name: $('#searchtxbox1').val(), last_name: $('#searchtxbox2').val() }).done(function (response) {
+                            callback(response);
+                        })
+                        .fail(function () { alert("یافت نشد!") });
+                    },
+                });
                 $("#grid").simplePagingGrid("refresh");
             });
         });
