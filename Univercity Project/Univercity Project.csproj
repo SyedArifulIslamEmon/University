@@ -210,6 +210,7 @@
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Search\Search_By_Name.cshtml" />
     <Content Include="Views\Search\Search_By_Employment_Number.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

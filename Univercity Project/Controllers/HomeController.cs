@@ -12,6 +12,7 @@ namespace Univercity_Project.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            throw new InvalidOperationException();
             return View();
         }
     }
