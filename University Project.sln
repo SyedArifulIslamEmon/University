@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Univercity Project", "Univercity Project\Univercity Project.csproj", "{5C3B2B7A-4838-4697-9F8E-1B577009B830}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University Project", "Univercity Project\University Project.csproj", "{5C3B2B7A-4838-4697-9F8E-1B577009B830}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Univercity Project.Models", "Univercity Project.Models\Univercity Project.Models.csproj", "{CBB589EA-B5D5-495E-91C2-2494A1F73D6B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University Project.Models", "Univercity Project.Models\University Project.Models.csproj", "{CBB589EA-B5D5-495E-91C2-2494A1F73D6B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D767B2BE-34ED-4AEF-BDB3-C2CBD301428B}"
 	ProjectSection(SolutionItems) = preProject

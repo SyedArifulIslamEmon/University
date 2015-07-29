@@ -222,9 +222,9 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Univercity Project.Models\Univercity Project.Models.csproj">
+    <ProjectReference Include="..\Univercity Project.Models\University Project.Models.csproj">
       <Project>{cbb589ea-b5d5-495e-91c2-2494a1f73d6b}</Project>
-      <Name>Univercity Project.Models</Name>
+      <Name>University Project.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
